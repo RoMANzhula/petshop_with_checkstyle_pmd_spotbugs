@@ -13,4 +13,6 @@ public interface AnimalService {
 
     List<Animal> getByName(String name);
 
+    Animal saveNewAnimal(Animal animal);
+
 }

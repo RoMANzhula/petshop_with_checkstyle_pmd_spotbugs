@@ -36,4 +36,11 @@ public class AnimalController {
         return ResponseEntity.ok(animalService.getByName(name));
     }
 
+    @PostMapping("/new")
+    public ResponseEntity<Animal> addAnimal(
+            @RequestBody Animal animal
+    ) {
+        return ResponseEntity.ok(animalService.saveNewAnimal(animal));
+    }
+
 }

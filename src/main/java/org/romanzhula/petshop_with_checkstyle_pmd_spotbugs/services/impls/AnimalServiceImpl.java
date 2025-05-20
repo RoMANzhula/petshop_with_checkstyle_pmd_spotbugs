@@ -37,4 +37,9 @@ public class AnimalServiceImpl implements AnimalService {
         return animalRepository.findByNameIgnoreCase(name);
     }
 
+    @Override
+    public Animal saveNewAnimal(Animal animal) {
+        return animalRepository.save(animal);
+    }
+
 }
