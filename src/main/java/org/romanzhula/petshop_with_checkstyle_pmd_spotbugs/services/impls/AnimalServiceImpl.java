@@ -56,4 +56,13 @@ public class AnimalServiceImpl implements AnimalService {
         return animalRepository.save(existingAnimal);
     }
 
+    @Override
+    public void clearPositionById(Long id) {
+        if (!animalRepository.existsById(id)) {
+            throw new ResourceNotFoundException("Animal with ID " + id + " not found.");
+        }
+
+        animalRepository.deleteById(id);
+    }
+
 }

@@ -51,4 +51,12 @@ public class AnimalController {
         return ResponseEntity.ok(animalService.updateAnimal(id, updatedAnimal));
     }
 
+    @DeleteMapping("/clear/{id}")
+    public ResponseEntity<Void> goodLifeAnimal(
+            @PathVariable Long id
+    ) {
+        animalService.clearPositionById(id);
+        return ResponseEntity.noContent().build(); // 204 no content
+    }
+
 }

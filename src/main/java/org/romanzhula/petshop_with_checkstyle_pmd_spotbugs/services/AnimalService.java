@@ -17,4 +17,6 @@ public interface AnimalService {
 
     Animal updateAnimal(Long id, Animal updatedAnimal);
 
+    void clearPositionById(Long id);
+
 }
