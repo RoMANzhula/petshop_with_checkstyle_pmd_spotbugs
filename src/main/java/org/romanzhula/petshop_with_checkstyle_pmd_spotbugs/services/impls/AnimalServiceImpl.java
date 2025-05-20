@@ -32,4 +32,9 @@ public class AnimalServiceImpl implements AnimalService {
         ;
     }
 
+    @Override
+    public List<Animal> getByName(String name) {
+        return animalRepository.findByNameIgnoreCase(name);
+    }
+
 }

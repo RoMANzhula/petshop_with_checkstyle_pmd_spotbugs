@@ -3,10 +3,7 @@ package org.romanzhula.petshop_with_checkstyle_pmd_spotbugs.controllers;
 import org.romanzhula.petshop_with_checkstyle_pmd_spotbugs.models.Animal;
 import org.romanzhula.petshop_with_checkstyle_pmd_spotbugs.services.AnimalService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,13 @@ public class AnimalController {
             @PathVariable Long id
     ) {
         return ResponseEntity.ok(animalService.getById(id));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Animal>> getAnimalByName(
+            @RequestParam String name
+    ) {
+        return ResponseEntity.ok(animalService.getByName(name));
     }
 
 }
