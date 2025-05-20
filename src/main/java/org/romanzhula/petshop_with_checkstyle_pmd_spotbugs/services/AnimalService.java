@@ -9,4 +9,6 @@ public interface AnimalService {
 
     List<Animal> getAllAnimals();
 
+    Animal getById(Long id);
+
 }
