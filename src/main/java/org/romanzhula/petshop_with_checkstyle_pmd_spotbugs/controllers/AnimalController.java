@@ -43,4 +43,12 @@ public class AnimalController {
         return ResponseEntity.ok(animalService.saveNewAnimal(animal));
     }
 
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<Animal> updateAnimal(
+            @PathVariable Long id,
+            @RequestBody Animal updatedAnimal
+    ) {
+        return ResponseEntity.ok(animalService.updateAnimal(id, updatedAnimal));
+    }
+
 }

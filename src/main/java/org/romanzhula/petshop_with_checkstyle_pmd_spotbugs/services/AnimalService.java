@@ -15,4 +15,6 @@ public interface AnimalService {
 
     Animal saveNewAnimal(Animal animal);
 
+    Animal updateAnimal(Long id, Animal updatedAnimal);
+
 }

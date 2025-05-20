@@ -42,4 +42,18 @@ public class AnimalServiceImpl implements AnimalService {
         return animalRepository.save(animal);
     }
 
+    @Override
+    public Animal updateAnimal(Long id, Animal updatedAnimal) {
+        Animal existingAnimal = animalRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Animal with ID " + id + " not found."
+                ))
+        ;
+
+        existingAnimal.setName(updatedAnimal.getName());
+        existingAnimal.setSpecies(updatedAnimal.getSpecies());
+
+        return animalRepository.save(existingAnimal);
+    }
+
 }
