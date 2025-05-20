@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.15.xsd">
+
+    <changeSet id="02-insert-pets-table" author="romanzhula">
+        <insert tableName="pets">
+            <column name="name" value="Barsik"/>
+            <column name="species" value="Cat"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Rex"/>
+            <column name="species" value="Dog"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Kesha"/>
+            <column name="species" value="Parrot"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Turtle"/>
+            <column name="species" value="Turtle"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Jerry"/>
+            <column name="species" value="Hamster"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Tom"/>
+            <column name="species" value="Cat"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Bonya"/>
+            <column name="species" value="Dog"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Felix"/>
+            <column name="species" value="Cat"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Archie"/>
+            <column name="species" value="Dog"/>
+        </insert>
+        <insert tableName="pets">
+            <column name="name" value="Nemo"/>
+            <column name="species" value="Fish"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
