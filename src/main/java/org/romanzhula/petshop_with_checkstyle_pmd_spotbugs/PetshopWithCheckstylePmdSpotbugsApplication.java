@@ -3,6 +3,7 @@ package org.romanzhula.petshop_with_checkstyle_pmd_spotbugs;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SuppressWarnings("PMD.UseUtilityClass")
 @SpringBootApplication
 public class PetshopWithCheckstylePmdSpotbugsApplication {
 
