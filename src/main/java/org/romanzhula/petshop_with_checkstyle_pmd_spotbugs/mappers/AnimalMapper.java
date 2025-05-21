@@ -10,7 +10,7 @@ import org.romanzhula.petshop_with_checkstyle_pmd_spotbugs.models.Animal;
 import java.util.List;
 
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AnimalMapper {
 
     AnimalMapper INSTANCE = Mappers.getMapper(AnimalMapper.class);
