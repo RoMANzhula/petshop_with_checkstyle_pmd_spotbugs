@@ -1,5 +1,7 @@
 package org.romanzhula.petshop_with_checkstyle_pmd_spotbugs.services;
 
+import org.romanzhula.petshop_with_checkstyle_pmd_spotbugs.dto.request.AnimalRequest;
+import org.romanzhula.petshop_with_checkstyle_pmd_spotbugs.dto.response.AnimalResponse;
 import org.romanzhula.petshop_with_checkstyle_pmd_spotbugs.models.Animal;
 
 import java.util.List;
@@ -7,15 +9,15 @@ import java.util.List;
 
 public interface AnimalService {
 
-    List<Animal> getAllAnimals();
+    List<AnimalResponse> getAllAnimals();
 
-    Animal getById(Long id);
+    AnimalResponse getById(Long id);
 
-    List<Animal> getByName(String name);
+    List<AnimalResponse> getByName(String name);
 
-    Animal saveNewAnimal(Animal animal);
+    AnimalResponse saveNewAnimal(AnimalRequest animalRequest);
 
-    Animal updateAnimal(Long id, Animal updatedAnimal);
+    AnimalResponse updateAnimal(Long id, AnimalRequest updatedAnimal);
 
     void clearPositionById(Long id);
 
