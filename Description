@@ -131,3 +131,8 @@
             -- SpotBugs
 
     choose any tool and get data about project and problems(errors)
+
+    Good info:
+        https://www.baeldung.com/spotbugs-detect-bugs-code
+        https://spotbugs.github.io/
+        https://spotbugs.readthedocs.io/en/stable/maven.html
