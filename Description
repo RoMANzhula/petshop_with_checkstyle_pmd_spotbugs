@@ -1,0 +1,133 @@
+    Integration Checkstyle / PMD / SpotBugs to Spring Boot application
+
+
+1.  Checkstyle - a tool for checking corporate grammar style (indentations, variable names, line length, etc.)
+    PMD - a tool for checking potential mistakes/antipatterns (empty catch-es, duplicate logic, long methods, etc.)
+    SpotBugs - a tool for checking potential defects (null poiner, bad equals/hashcode, incorrect use of threads enc.)
+
+2. Add plugins and metrics to our pom.xml file:
+        <build>
+            <plugins>
+                ...
+
+                <!-- Checkstyle -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>3.6.0</version>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <configLocation>google_checks.xml</configLocation>
+                        <consoleOutput>true</consoleOutput>
+                        <failOnViolation>true</failOnViolation>
+                    </configuration>
+                </plugin>
+
+                <!-- PMD -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>3.21.0</version>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <rulesets>
+                            <ruleset>/rulesets/java/quickstart.xml</ruleset>
+                        </rulesets>
+                        <failOnViolation>true</failOnViolation>
+                    </configuration>
+                </plugin>
+
+                <!-- SpotBugs -->
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>4.9.3.0</version>
+                    <executions>
+                        <execution>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>check</goal>
+                                <goal>spotbugs</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <effort>Max</effort>
+                        <threshold>Low</threshold>
+                        <failOnError>true</failOnError>
+                        <htmlOutput>true</htmlOutput>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </build>
+
+        <reporting>
+            <plugins>
+                <!-- Checkstyle Report -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>3.6.0</version>
+                    <configuration>
+                        <configLocation>google_checks.xml</configLocation>
+                        <consoleOutput>true</consoleOutput>
+                        <failOnViolation>true</failOnViolation>
+                    </configuration>
+                </plugin>
+
+                <!-- PMD Report -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>3.21.0</version>
+                    <configuration>
+                        <rulesets>
+                            <ruleset>/rulesets/java/quickstart.xml</ruleset>
+                        </rulesets>
+                        <failOnViolation>true</failOnViolation>
+                    </configuration>
+                </plugin>
+
+                <!-- SpotBugs Report -->
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>4.9.3.0</version>
+                </plugin>
+            </plugins>
+        </reporting>
+
+3. Add annotation with comment to ignore this warning (class with only static methods) for main class:
+    @SuppressWarnings("PMD.UseUtilityClass")
+    @SpringBootApplication
+    public class PetshopWithCheckstylePmdSpotbugsApplication {
+
+4. Input build command for Maven:
+    mvn clean verify site
+    mvn site
+    mvn spotbugs:spotbugs
+
+5. Go to the target/site/index.html -> Open in -> Browser -> Chrome/Firefox/Edge or some else
+    and in the left menu choose:
+        - Project Reports
+            -- Checkstyle
+            -- CPD
+            -- PMD
+            -- SpotBugs
+
+    choose any tool and get data about project and problems(errors)
