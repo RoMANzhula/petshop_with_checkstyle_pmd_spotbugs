@@ -87,6 +87,8 @@
 		</dependency>
 	</dependencies>
 
+
+
 	<build>
 		<plugins>
 			<!-- Spring Boot Plugin -->
@@ -165,12 +167,13 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.8.3.0</version>
+				<version>4.9.3.0</version>
 				<executions>
 					<execution>
 						<phase>verify</phase>
 						<goals>
 							<goal>check</goal>
+							<goal>spotbugs</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -178,6 +181,7 @@
 					<effort>Max</effort>
 					<threshold>Low</threshold>
 					<failOnError>true</failOnError>
+					<htmlOutput>true</htmlOutput>
 				</configuration>
 			</plugin>
 
@@ -215,12 +219,7 @@
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>4.8.3.0</version>
-				<configuration>
-					<effort>Max</effort>
-					<threshold>Low</threshold>
-					<failOnError>true</failOnError>
-				</configuration>
+				<version>4.9.3.0</version>
 			</plugin>
 		</plugins>
 	</reporting>
